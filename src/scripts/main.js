@@ -8,10 +8,10 @@ document.addEventListener('click', (e) => {
   if (!target) {
     return;
   }
-  sort(target);
+  sortTable(target);
 });
 
-function sort(elem) {
+function sortTable(elem) {
   // we find the column index number
   const thead = [...table.rows[0].cells];
   const currentPos = thead.indexOf(elem);
@@ -21,7 +21,7 @@ function sort(elem) {
     let secondValue = b.cells[currentPos].innerHTML;
 
     // we check whether these are numbers
-    if (parseFloat(firstValue) || firstValue.includes('$')) {
+    if (!isNaN(parseFloat(firstValue)) || firstValue.includes('$')) {
       if (firstValue.includes('$')) {
         firstValue = firstValue.slice(1).replace(',', '.');
         secondValue = secondValue.slice(1).replace(',', '.');
