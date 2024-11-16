@@ -12,7 +12,6 @@ document.addEventListener('click', (e) => {
 });
 
 function sortTable(elem) {
-  // we find the column index number
   const thead = [...table.rows[0].cells];
   const currentPos = thead.indexOf(elem);
 
@@ -20,7 +19,6 @@ function sortTable(elem) {
     let firstValue = a.cells[currentPos].innerHTML;
     let secondValue = b.cells[currentPos].innerHTML;
 
-    // we check whether these are numbers
     if (!isNaN(parseFloat(firstValue)) || firstValue.includes('$')) {
       if (firstValue.includes('$')) {
         firstValue = firstValue.slice(1).replace(',', '.');
